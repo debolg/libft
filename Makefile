@@ -2,7 +2,7 @@
 
 NAME = libft.a
 
-SRCS = ft_isdigit.c ft_memset.c 
+SRCS = ft_isdigit.c ft_memset.c ft_toupper.c ft_tolower.c
 
 OBJS = $(SRCS:.c=.o)
 
