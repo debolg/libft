@@ -1,28 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: debolg <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/08 13:29:23 by debolg            #+#    #+#             */
-/*   Updated: 2020/11/11 18:27:06 by debolg           ###   ########.fr       */
+/*   Created: 2020/11/11 20:03:18 by debolg            #+#    #+#             */
+/*   Updated: 2020/11/15 13:55:22 by debolg           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *mas, int simb, size_t count)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	unsigned char	*s;
-	int				x;
+	unsigned char *bufout;
+	unsigned char *bufin;
 
-	s = (unsigned char *)mas;
-	x = 0;
-	while (x != count)
+	bufout = (unsigned char *)src;
+	bufin = (unsigned char *)dst;
+	if (dst == NULL && src == NULL)
+		return (NULL);
+	if (bufin < bufout)
 	{
-		*(s + x) = simb;
-		x++;
+		while (len--)
+			*(bufin++) = *(bufout++);
 	}
-	return (mas);
+	else
+	{
+		bufin += len;
+		bufout += len;
+		while (len--)
+			*(--bufin) = *(--bufout);
+	}
+	return (dst);
 }

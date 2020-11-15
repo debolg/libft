@@ -6,7 +6,7 @@
 /*   By: debolg <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/08 13:28:41 by debolg            #+#    #+#             */
-/*   Updated: 2020/11/09 21:20:17 by debolg           ###   ########.fr       */
+/*   Updated: 2020/11/11 20:50:31 by debolg           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,16 @@
 void	*ft_memset(void *mas, int simb, int count)
 {
 	unsigned char	*s;
-	unsigned char	z;
-//	int				x;
+	int				x;
 
-	s = (unsigned char *) mas;
-	z = (unsigned char) simb;
-//	x = 0;
-	printf("count = %i\n", count);
-	while (count--)
+	s = (unsigned char *)mas;
+	x = 0;
+	while (x != count)
 	{
-		write(1, "****\n", 5);
-		printf("1 \n");
-		*(s++) = (char)z;
-//		*(s++) = simb;
-		printf("2");
-//		x++;
+		*(s + x) = simb;
+		x++;
 	}
-//	printf("%c\n", *s);
-	return (s);
+	return (mas);
 }
 
 int		ft_isdigit(int ch)
@@ -47,13 +39,22 @@ int		ft_isdigit(int ch)
 		return (0);
 }
 
-int		main()
+int		ft_strlen(char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	printf("%i\n", i);
+	return (i);
+}
+
+int		main(void)
 {
 	char *str;
 
-	str = "string for test";
-//	ft_isdigit(50);
-	ft_memset(str, '2', 3);
-
+	str = "String for test";
+	ft_strlen(str);
 	return (0);
 }

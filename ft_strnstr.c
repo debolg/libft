@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: debolg <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/08 13:29:23 by debolg            #+#    #+#             */
-/*   Updated: 2020/11/11 18:27:06 by debolg           ###   ########.fr       */
+/*   Created: 2020/11/14 13:48:32 by debolg            #+#    #+#             */
+/*   Updated: 2020/11/15 15:18:35 by debolg           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *mas, int simb, size_t count)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	unsigned char	*s;
-	int				x;
+	int	x;
+	int lenn;
 
-	s = (unsigned char *)mas;
 	x = 0;
-	while (x != count)
+	lenn = ft_strlen(needle);
+	if (lenn == 0 || needle == NULL)
+		return ((char *)haystack);
+	while (*haystack && len >= lenn)
 	{
-		*(s + x) = simb;
-		x++;
+		x = ft_strncmp(haystack, needle, lenn);
+		if (x == 0)
+			return ((char *)haystack);
+		else
+		{
+			len--;
+			haystack++;
+		}
 	}
-	return (mas);
+	return (NULL);
 }

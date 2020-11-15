@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: debolg <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/08 13:29:23 by debolg            #+#    #+#             */
-/*   Updated: 2020/11/11 18:27:06 by debolg           ###   ########.fr       */
+/*   Created: 2020/11/10 18:52:32 by debolg            #+#    #+#             */
+/*   Updated: 2020/11/10 20:43:00 by debolg           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *mas, int simb, size_t count)
+int		ft_strlen(const char *str)
 {
-	unsigned char	*s;
-	int				x;
+	int	i;
 
-	s = (unsigned char *)mas;
-	x = 0;
-	while (x != count)
-	{
-		*(s + x) = simb;
-		x++;
-	}
-	return (mas);
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
 }

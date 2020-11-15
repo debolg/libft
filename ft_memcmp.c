@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: debolg <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/08 13:29:23 by debolg            #+#    #+#             */
-/*   Updated: 2020/11/11 18:27:06 by debolg           ###   ########.fr       */
+/*   Created: 2020/11/14 09:26:20 by debolg            #+#    #+#             */
+/*   Updated: 2020/11/14 09:57:11 by debolg           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *mas, int simb, size_t count)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	unsigned char	*s;
-	int				x;
+	unsigned char *strout;
+	unsigned char *strin;
 
-	s = (unsigned char *)mas;
-	x = 0;
-	while (x != count)
+	strout = (unsigned char *)s2;
+	strin = (unsigned char *)s1;
+	while (n--)
 	{
-		*(s + x) = simb;
-		x++;
+		if (*strin < *strout)
+			return (*strin - *strout);
+		else if (*strin > *strout)
+			return (*strin - *strout);
+		strin++;
+		strout++;
 	}
-	return (mas);
+	return (0);
 }

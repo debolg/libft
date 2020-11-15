@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: debolg <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/08 13:29:23 by debolg            #+#    #+#             */
-/*   Updated: 2020/11/11 18:27:06 by debolg           ###   ########.fr       */
+/*   Created: 2020/11/11 18:35:29 by debolg            #+#    #+#             */
+/*   Updated: 2020/11/11 18:54:35 by debolg           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *mas, int simb, size_t count)
+void	ft_bzero(void *s, size_t n)
 {
-	unsigned char	*s;
-	int				x;
+	unsigned char	*str;
+	size_t			i;
 
-	s = (unsigned char *)mas;
-	x = 0;
-	while (x != count)
+	str = s;
+	i = 0;
+	while (n--)
 	{
-		*(s + x) = simb;
-		x++;
+		*(str + i) = '\0';
+		i++;
 	}
-	return (mas);
 }

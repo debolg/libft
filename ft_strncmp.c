@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: debolg <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/08 13:29:23 by debolg            #+#    #+#             */
-/*   Updated: 2020/11/11 18:27:06 by debolg           ###   ########.fr       */
+/*   Created: 2020/11/10 19:56:17 by debolg            #+#    #+#             */
+/*   Updated: 2020/11/11 18:26:45 by debolg           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *mas, int simb, size_t count)
+int		ft_strncmp(const char *str1, const char *str2, size_t len)
 {
-	unsigned char	*s;
-	int				x;
+	unsigned char	*s1;
+	unsigned char	*s2;
+	int				i;
 
-	s = (unsigned char *)mas;
-	x = 0;
-	while (x != count)
+	s1 = (unsigned char *)str1;
+	s2 = (unsigned char *)str2;
+	if (!len)
+		return (0);
+	i = 0;
+	while ((s1[i] || s2[i]) && i < len)
 	{
-		*(s + x) = simb;
-		x++;
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		i++;
 	}
-	return (mas);
+	return (0);
 }

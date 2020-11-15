@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: debolg <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/08 13:29:23 by debolg            #+#    #+#             */
-/*   Updated: 2020/11/11 18:27:06 by debolg           ###   ########.fr       */
+/*   Created: 2020/11/14 13:42:51 by debolg            #+#    #+#             */
+/*   Updated: 2020/11/14 13:47:34 by debolg           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *mas, int simb, size_t count)
+int	ft_isprint(int c)
 {
-	unsigned char	*s;
-	int				x;
-
-	s = (unsigned char *)mas;
-	x = 0;
-	while (x != count)
-	{
-		*(s + x) = simb;
-		x++;
-	}
-	return (mas);
+	return (c >= 32 && c <= 126);
 }
